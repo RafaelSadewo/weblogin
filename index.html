@@ -18,11 +18,12 @@
             var password = document.getElementById("password").value;
             var url = "https://script.google.com/macros/s/AKfycbxB2mvD1oh269DRSxLxrlJ7Cr69113Nsj0euZh8UPNQfjrKZTDdDpKB_yyPZY9b29XVLA/exec"; // Ganti dengan URL Web App dari Apps Script
 
-            fetch(url, {
+            fetch("https://script.google.com/macros/s/AKfycbxB2mvD1oh269DRSxLxrlJ7Cr69113Nsj0euZh8UPNQfjrKZTDdDpKB_yyPZY9b29XVLA/exec", {
                 method: "POST",
-                body: JSON.stringify({ username, password }),
-                headers: { "Content-Type": "application/json" }
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ username, password })
             })
+
             .then(response => response.text())
             .then(data => document.getElementById("result").innerText = data)
             .catch(error => console.error(error));
